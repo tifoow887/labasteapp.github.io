@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Exchange App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- WhatsApp Button -->
+  <a href="http://wa.me/614449761" class="whatsapp-button" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+    <div class="container">
+        <!-- Page 1: Soft Register -->
+        <div class="page" id="page1">
+            <h2 class="text-left">Soft Register</h2>
+            <div class="text-left">
+                <label>Hormuud</label>
+            </div>
+            <div class="text-left">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" data-prefix="252" placeholder="Enter Number" >
+                <div class="error-message" id="phoneError"></div>
+             </div>
+             <button class="web3-btn" id="registerBtn">Complete Register</button>
+ <img src="https://i.ibb.co/TwBXq11/Untitled-design-4.png" alt="Bottom Image" class="bottom-image">
+
+        </div>
+
+        <!-- Page 2: Register Payment Method -->
+        <div class="page hidden" id="page2">
+            <h2 class="text-left">Register Payment Method</h2>
+            <div class="text-left">
+                 <label for="payeerId">Litavo Address:</label>
+                 <input type="text" id="payeerId" data-prefix="P" placeholder="Wallet Address">
+                 <div class="error-message" id="payeerError"></div>
+            </div>
+           <div class="text-left">
+                 <label for="regPhone">Mobile Number:</label>
+                 <input type="tel" id="regPhone" readonly>
+            </div>
+              <button class="web3-btn" id="registerPayBtn">Complete Register Payment Method</button>
+ <img src="https://i.ibb.co/TwBXq11/Untitled-design-4.png" alt="Bottom Image" class="bottom-image">
+        </div>
+        
+        <!-- Page 3: Exchange -->
+        <div class="page hidden" id="page3">
+        <h2 class="text-left">Exchange</h2>
+            <div class="text-left">
+               <label for="sellCurrency">Sell Currency</label>
+                 <select id="sellCurrency">
+                    <option value="PAYEER">LITAVO</option>
+                    <option value="EVCPLUS">EVCPLUS</option>
+                   </select>
+            </div>
+             <div class="text-left">
+                   <label for="sellAmount">Enter amount</label>
+                   <input type="number" id="sellAmount" min="1" max="100">
+             </div>
+            <div class="text-left">
+                  <label for="buyCurrency">Buy Currency</label>
+                    <select id="buyCurrency" disabled>
+                     <option value="PAYEER">LITAVO</option>
+                      <option value="EVCPLUS">EVCPLUS</option>
+                    </select>
+            </div>
+             <div class="text-left">
+                  <label for="buyAmount">Enter amount</label>
+                   <input type="number" id="buyAmount" readonly>
+            </div>
+            
+                 <div class="exchange-fee text-left">Exchange fee: <span id="exchangeFee"></span></div>
+                 <button class="web3-btn" id="exchangeBtn" >Exchange now</button>
+                 <button class="web3-btn hidden" id="nextBtn">Next</button>
+        </div>
+
+        <!-- Page 4: Payment Method Analysis -->
+        <div class="page hidden" id="page4">
+        <h2 class="text-left">Payment Details</h2>
+           <h3 class="text-left">Sell Sender</h3>
+            <div class="text-left">
+                <p>Currency Name: <span id="sellCurrencyName"></span></p>
+            </div>
+             <div class="text-left">
+                <p>Currency Number: <span id="sellCurrencyNumber"></span></p>
+           </div>
+             <div class="text-left">
+               <p>Amount: <span id="sellAmountValue"></span></p>
+            </div>
+            <h3 class="text-left">Buy Detail</h3>
+             <div class="text-left">
+                <p>Currency Name: <span id="buyCurrencyName"></span></p>
+             </div>
+            <div class="text-left">
+               <p>Currency Number: <span id="buyCurrencyNumber"></span></p>
+            </div>
+            <div class="text-left">
+                <p>Amount: <span id="buyAmountValue"></span></p>
+            </div>
+              <div class="text-left">
+                 <p>📸</p>
+            </div>
+               <p class="text-left">
+                   The reason for taking this ScreenShot is to send to whatsapp "ScreenShot-ka ku soodir whatsApp-ka kor saaran.
+              </p>
+            <div class="button-container">
+                 <button class="web3-btn horizontal-line" id="backBtn4">Back</button>
+                 <button class="web3-btn horizontal-line" id="nextBtn4">Next</button>
+             </div>
+        </div>
+
+        <!-- Page 5: Deposit Transaction -->
+        <div class="page hidden" id="page5">
+        <h2 class="text-left">Deposit Transaction</h2>
+            <div class="text-left">
+                <p>Scan QR Code for  <span id="depositMethod"></span></p>
+            </div>
+           <div class="qr-code-container">
+               <div id="payeerQrContainer" class="hidden">
+                 <div id="payeerQrCode"></div>
+                </div>
+               <div id="evcplusQrContainer" class="hidden">
+                   <div id="evcplusQrCode"></div>
+                </div>
+           </div>
+           <div class="button-container">
+                  <button class="web3-btn horizontal-line" id="backBtn5">Back</button>
+                  <button class="web3-btn horizontal-line" id="nextBtn5">Next</button>
+             </div>
+ <img src="https://i.ibb.co/TwBXq11/Untitled-design-4.png" alt="Bottom Image" class="bottom-image">
+        </div>
+
+         <!-- Page 6: Complete a minutes -->
+        <div class="page hidden" id="page6">
+          <h2 class="text-left">Transaction Complete In</h2>
+            <div id="timer">10:00</div>
+               <div class="ads-banner">
+                 <img src="ads-banner.png" alt="Ads Banner" width="468" height="60">
+            </div>
+             <div class="button-container">
+                   <button class="web3-btn horizontal-line" id="backBtn6">Back</button>
+                   <button class="web3-btn horizontal-line" id="nextBtn6">Next</button>
+             </div>
+        </div>
+    </div>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
